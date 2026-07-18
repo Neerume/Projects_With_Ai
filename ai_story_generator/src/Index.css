@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.fantasy-font{
+  font-family: 'Cinzel', serif;
+}

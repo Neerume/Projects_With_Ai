@@ -2,7 +2,7 @@ import React from 'react';
 
 const navbar = () => {
   return (
-    <div className="w-full h-20 justify-between items-center flex bg-slate-950 text-amber-100 border-b border-yellow-500/20 px-4">
+    <div className="w-full h-20 justify-between items-center flex bg-transparent text-amber-100 border-b border-yellow-500/20 px-4">
       <div className="flex items-center space-x-2">
         <span className="text-4xl">🪶</span>
         <div>
