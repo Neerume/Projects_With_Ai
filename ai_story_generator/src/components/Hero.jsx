@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import BackgroundImage from "../assets/background.png";
 import Robot from "../assets/robot.png";
+import { BookOpen } from "lucide-react";
+import { Users } from "lucide-react";
+
 
 const Hero =()=>{
+  const [prompt, setPrompt] = useState("");
   return(
   <div>
     <div className ="flex md:gap-20 gap-9">
@@ -22,8 +26,9 @@ const Hero =()=>{
             <textarea
               placeholder="🖋️✨ e.g. A brave knight falls in love with a princess"
               className="w-full h-32 px-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-white placeholder:text-gray-300 outline-none resize-none"
+              value={prompt} onChange={(e)=> setPrompt(e.target.value)} maxLength={500}
             />
-              <span className="absolute bottom-4 right-5 text-sm text-gray-400">0 / 500 </span>
+              <span className="absolute bottom-4 right-5 text-sm text-gray-400">{prompt.length}/ 500 </span>
           </div>
           <div className="-mt-5 justify-start flex gap-4 md:gap-6">
             <button className=" bg-violet-500 hover:bg-violet-400 transition px-5 py-2 rounded-lg text-white">✨ Generate Story</button>
@@ -36,6 +41,16 @@ const Hero =()=>{
       </div>
 
 </div>
+
+    <div className="flex md:gap-8 gap-5 md:px-10 px-5 border rounded-lg py-5 bg-transparent backdrop-blur-md border-white/20 w-full max-w-2xl mx-auto md:ml-10 ml-5">
+      <div className="w-14 h-14 rounded-full bg-violet-900 flex items-center justify-center">
+       <BookOpen className="text-yellow-300 w-7 h-7" />
+      </div>
+
+      <div className="w-14 h-14 rounded-full bg-violet-900 flex items-center justify-center">
+        <Users className="text-yellow-300 w-7 h-7"/>
+      </div>
+    </div>
 
 </div>
   ) 
