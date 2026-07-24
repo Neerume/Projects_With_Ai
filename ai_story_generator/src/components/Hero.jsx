@@ -3,7 +3,9 @@ import BackgroundImage from "../assets/background.png";
 import Robot from "../assets/robot.png";
 import { BookOpen } from "lucide-react";
 import { Users } from "lucide-react";
-
+import "../index.css";
+import { Sparkles } from "lucide-react";
+import { PencilSparkles } from "lucide-react";
 
 const Hero =()=>{
   const [prompt, setPrompt] = useState("");
@@ -42,14 +44,52 @@ const Hero =()=>{
 
 </div>
 
-    <div className="flex md:gap-8 gap-5 md:px-10 px-5 border rounded-lg py-5 bg-transparent backdrop-blur-md border-white/20 w-full max-w-2xl mx-auto md:ml-10 ml-5">
-      <div className="w-14 h-14 rounded-full bg-violet-900 flex items-center justify-center">
-       <BookOpen className="text-yellow-300 w-7 h-7" />
+    <div className="flex md:gap-8 gap-5 md:px-10 px-2 border rounded-lg py-5 bg-transparent backdrop-blur-md border-white/20 w-full max-w-2xl mx-auto md:ml-10 ml-5">
+      
+      <div className="flex gap-3">
+      <div className="w-14 h-12 rounded-full bg-violet-900 flex justify-center hexagon items-center">
+       <BookOpen className="text-yellow-300 w-5 h-5" />
       </div>
+      <div className="flex flex-col justify-center">
+        <span className="text-yellow-300 text-2xl">10K+</span>
+        <p className="text-gray-300 text-sm">Stories Generated</p>
+      </div>
+    </div>
 
-      <div className="w-14 h-14 rounded-full bg-violet-900 flex items-center justify-center">
-        <Users className="text-yellow-300 w-7 h-7"/>
+
+   <div className="flex gap-3">
+      <div className="w-14 h-12 rounded-full bg-violet-900 flex justify-center hexagon items-center">
+        <Users className="text-yellow-300 w-5 h-5"/>
       </div>
+      <div className="flex flex-col justify-center">
+        <span className="text-yellow-300 text-2xl">5K+</span>
+        <p className="text-gray-300 text-sm">Happy Writers</p>
+      </div>
+    </div>
+
+       <div className="flex gap-3">
+      <div className="w-14 h-12 rounded-full bg-violet-900 flex justify-center hexagon items-center">
+        <Sparkles className="text-yellow-300 w-5 h-5"/>
+      </div>
+      <div className="flex flex-col justify-center">
+        <span className="text-yellow-300 text-2xl">50K+</span>
+        <p className="text-gray-300 text-sm">Unique Genres</p>
+      </div>
+    </div>
+
+       <div className="flex gap-3">
+      <div className="w-14 h-12 rounded-full bg-violet-900 flex justify-center hexagon items-center">
+        <PencilSparkles className="text-yellow-300 w-5 h-5"/>
+      </div>
+      <div className="flex flex-col justify-center">
+        <span className="text-yellow-300 text-2xl">100%</span>
+        <p className="text-gray-300 text-sm">AI powered magic</p>
+      </div>
+    </div>
+
+  
+
+
     </div>
 
 </div>
