@@ -102,15 +102,46 @@
           <div className="flex-1 gap-2 h-px bg-gradient-to-l from-yellow-500/30 via-yellow-500/30 to-yellow-400"></div>
         </div>
 
-        <div className="flex ">
+        <div className="flex flex-col md:flex-row md:gap-5 gap-3 mt-5 md:items-start items-center">
           <div className="flex gap-3">
-            <div className="flex w-15 h-15 bg-violet-800 hexagon justify-center items-center">
-              <PenTool className="text-yellow-300 w-10 h-10" />
-
+            <div className="flex w-15 h-13 bg-violet-800 hexagon justify-center items-center">
+              <PenTool className="text-yellow-300 w-8 h-8" />               
             </div>
+            <div className="flex flex-col md:gap-2 gap-1">
+              <p className="text-yellow-300 text-2xl">1<br/>Describe</p>
+              <p className="text-gray-300 text-sm">Share your ideas in a few words</p>
+            </div>
+          </div>
+            <div className="flex gap-3">
+            <div className="flex w-15 h-13 bg-violet-800 hexagon justify-center items-center">
+              <Sparkles className="text-yellow-300 w-8 h-8" />               
+            </div>
+            <div className="flex flex-col md:gap-2 gap-1">
+              <p className="text-yellow-300 text-2xl">2<br/>AI Weaves</p>
+              <p className="text-gray-300 text-sm">Our AI crafts a unique story just for you.</p>
+            </div>
+          </div>
+             <div className="flex gap-3">
+            <div className="flex w-15 h-13 bg-violet-800 hexagon justify-center items-center">
+              <BookOpen className="text-yellow-300 w-8 h-8" />               
+            </div>
+            <div className="flex flex-col md:gap-2 gap-1">
+              <p className="text-yellow-300 text-2xl">3<br/>Read and Enjoy</p>
+              <p className="text-gray-300 text-sm">Dive into your story and share it.</p>
+            </div>
+          </div>
 
-          </div>
-          </div>
+
+
+        </div>
+        <div className="flex justify-center mt-5 md:mt-10 border border-yellow-500/20 bg-blue/10 backdrop-blur-md rounded-lg md:py-7 py-4 md:px-10 px-5 items-center gap-5 md:gap-10">
+        <p className="flex-1 h-px bg-gradient-to-r from-yellow-500/30 via-yellow-500/30 to-yellow-400"></p>
+          <p className="text-yellow-200 text-[20px] text-center noto-serif">
+            Every great story begins with a single idea.<br />
+            Let's create magic together
+          </p>
+          <p className="flex-1 h-px bg-gradient-to-l from-yellow-500/30 via-yellow-500/30 to-yellow-400"></p>
+        </div>
       </div>
   </div>
     ) 
