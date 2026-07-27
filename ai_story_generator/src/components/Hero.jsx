@@ -7,9 +7,20 @@
   import { Sparkles } from "lucide-react";
   import { PencilSparkles } from "lucide-react";
   import { PenTool } from "lucide-react";
+  import stories from "../data/stories";
+  import { Swiper, SwiperSlide } from "swiper/react";
+  import { Navigation } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import StoryCard from "./StoryCard";
 
   const Hero =()=>{
     const [prompt, setPrompt] = useState("");
+
+      const featuredStories= stories.filter(
+         (story)=>story.featured
+      )
+
     return(
     <div>
 
@@ -129,10 +140,9 @@
               <p className="text-yellow-300 text-2xl">3<br/>Read and Enjoy</p>
               <p className="text-gray-300 text-sm">Dive into your story and share it.</p>
             </div>
+         
+         
           </div>
-
-
-
         </div>
         <div className="flex justify-center mt-5 md:mt-10 border border-yellow-500/20 bg-blue/10 backdrop-blur-md rounded-lg md:py-7 py-4 md:px-10 px-5 items-center gap-5 md:gap-10">
         <p className="flex-1 h-px bg-gradient-to-r from-yellow-500/30 via-yellow-500/30 to-yellow-400"></p>
@@ -141,6 +151,26 @@
             Let's create magic together
           </p>
           <p className="flex-1 h-px bg-gradient-to-l from-yellow-500/30 via-yellow-500/30 to-yellow-400"></p>
+        </div>
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={10}
+            className="storySwiper px-12"
+            breakpoints={{
+              320:{slidesPerView:1},
+              640:{slidesPerView:2},
+              1024:{slidesPerView:3},
+              1280:{slidesPerView:4},
+            }}>
+            {featuredStories.map((story)=>(
+              <SwiperSlide key={story.id}>
+                <StoryCard story={story}/>
+              </SwiperSlide>
+
+            ))}
+          </Swiper>
+        <div>
         </div>
       </div>
   </div>

@@ -41,6 +41,12 @@ const Navbar = () => {
             Create
           </Link>
         </li>
+
+        <li>
+          <Link to="/explore" className="hover:text-yellow-400 transition duration-300">
+            Explore
+          </Link>
+        </li>
       </ul>
 
       {/* Desktop Buttons */}
