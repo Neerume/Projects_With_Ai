@@ -17,65 +17,22 @@
 /* ============================= */
 
 .storySwiper {
-  padding: 20px 45px;
+  overflow: hidden;           /* <-- clips extra slides so they can't all show at once */
+  padding: 10px 45px 40px;
 }
-
-/* Navigation Arrows */
-
-.storySwiper .swiper-button-next,
-.storySwiper .swiper-button-prev {
-  width: 48px;
-  height: 48px;
-  border-radius: 9999px;
-  background: rgba(91, 33, 182, 0.75);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(250, 204, 21, 0.35);
-  color: #facc15;
-  transition: all 0.3s ease;
-}
-
-.storySwiper .swiper-button-next:hover,
-.storySwiper .swiper-button-prev:hover {
-  background: #7c3aed;
-  border-color: #facc15;
-  color: white;
-  transform: scale(1.08);
-}
-
-.storySwiper .swiper-button-next::after,
-.storySwiper .swiper-button-prev::after {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Pagination */
-
-.storySwiper .swiper-pagination {
-  margin-top: 18px;
-}
-
-.storySwiper .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background: rgba(250, 204, 21, 0.4);
-  opacity: 1;
-}
-
-.storySwiper .swiper-pagination-bullet-active {
-  background: #facc15;
-  transform: scale(1.3);
-}
-
-/* Slides */
-
-.storySwiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  height: auto;
-}
-
-/* Prevent cards from touching arrows */
 
 .storySwiper .swiper-wrapper {
-  padding: 8px 0;
+  display: flex;              /* <-- forces slide-by-slide layout instead of stacking */
+}
+
+.storySwiper .swiper-slide {
+  flex-shrink: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hide an arrow when there's nowhere to go — matches the reference's single-arrow look */
+.storySwiper .swiper-button-disabled {
+  display: none;
 }
