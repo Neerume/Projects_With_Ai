@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BackgroundImage from "../assets/background.png"; // Change this to your image
+import robo from "../assets/loginrobo.png";
 
 const Login = () => {
   return (
@@ -26,7 +27,7 @@ const Login = () => {
             </p>
 
             <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700"
+              src={robo}
               alt="AI Writing"
               className="mt-10 rounded-2xl w-full max-w-md object-cover"
             />
