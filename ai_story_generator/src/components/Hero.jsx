@@ -23,9 +23,10 @@ const Hero = () => {
   return (
     <div>
       {/* Text Box*/}
-      <div className="flex md:gap-20 gap-9">
-        <div className="md:min-h-screen justify-center md:px-20 md:py-20 px-10 py-10">
-          <h1 className="md:text-7xl text-4xl text-amber-100 fantasy-font">
+      <div className="flex flex-col md:flex-row md:gap-20 gap-9">
+        <div className="flex flex-col items-center md:items-start px-10 py-10 md:px-20 md:py-20 md:min-h-screen">
+          {" "}
+          <h1 className="md:text-7xl text-4xl text-amber-100 fantasy-font text-center md:text-left">
             Turn Your
             <br />
             Imagination
@@ -35,8 +36,7 @@ const Hero = () => {
               Stories
             </span>
           </h1>
-
-          <p className="text-gray-300 mt-6 max-w-xl md:text-xl text-sm">
+          <p className="text-gray-300 mt-6 max-w-xl md:text-xl text-sm text-center md:text-left">
             Describe your idea and let AI weave a magical story for you.
           </p>
           <div className="relative w-full max-w-2xl mx-auto md:mb-10 md:mt-7 mb-5 mt-5">
@@ -51,7 +51,7 @@ const Hero = () => {
               {prompt.length}/ 500{" "}
             </span>
           </div>
-          <div className="-mt-5 justify-start flex gap-4 md:gap-6">
+          <div className="justify-start flex gap-4 md:gap-6 mt-0">
             <button className=" bg-violet-500 hover:bg-violet-400 transition px-5 py-2 rounded-lg text-white">
               ✨ Generate Story
             </button>
