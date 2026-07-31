@@ -1,6 +1,7 @@
 import React from "react";
 import BackgroundImage from "../assets/background.png";
 import robo from "../assets/robot.png";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -55,6 +56,12 @@ const Register = () => {
                   Sign up
                 </button>
               </div>
+              <Link
+                to="/login"
+                className="flex block mt-6 justify-end text-amber-100 mr-10 hover:text-red-500"
+              >
+                Back to Login
+              </Link>
             </form>
           </div>
         </div>
