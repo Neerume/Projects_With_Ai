@@ -16,7 +16,7 @@ const Login = () => {
           <div className="hidden lg:flex flex-col justify-center items-center p-12 bg-gradient-to-br from-violet-900/30 to-black/20">
             <div className="text-7xl mb-6">🪶</div>
 
-            <h1 className="text-5xl font-bold text-amber-100 font-cinzel text-center">
+            <h1 className="text-5xl font-bold text-amber-100 fantasy-font text-center">
               CraftyCraft AI
             </h1>
 
