@@ -144,6 +144,9 @@ const CreateStory = () => {
                 </div>
               </div>
             </div>
+            <button className="bg-violet-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition mt-5 justify-center items-center flex mx-auto text-2xl fantasy-font gap-2">
+              ✨Generate Story
+            </button>
           </div>
         </div>
       </div>
