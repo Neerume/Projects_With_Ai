@@ -7,6 +7,7 @@ import { Heart } from "lucide-react";
 import { Orbit } from "lucide-react";
 import { Skull } from "lucide-react";
 import { CircleAlert } from "lucide-react";
+import Robo from "../assets/robo.png";
 
 const CreateStory = () => {
   return (
@@ -15,7 +16,7 @@ const CreateStory = () => {
       style={{ backgroundImage: `url(${BackgroundImage})` }}
     >
       <div className="min-h-screen bg-black/70 flex justify-center px-6 py-10">
-        <div className="w-full grid lg:grid-cols-[70%_30%]">
+        <div className="w-full grid lg:grid-cols-[70%_30%] items-start">
           {/*Left Side*/}
           <div className="flex flex-col ">
             <div className="flex gap-5 mb-3 justify-center items-center">
@@ -147,6 +148,27 @@ const CreateStory = () => {
             <button className="bg-violet-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition mt-5 justify-center items-center flex mx-auto text-2xl fantasy-font gap-2">
               ✨Generate Story
             </button>
+          </div>
+          {/*Right Side*/}
+          <div className="border border-white/20 bg-[#16112c]/80 backdrop-blur-md p-5 gap-5 rounded-xl md:mt-26 mt-10 mx-10 min-h-fit">
+            <div className="flex ">
+              <div className="flex flex-col gap-3 text-gray-300">
+                <h1 className="justify-start flex">✨AI Assitant</h1>
+                <p>
+                  Need help getting started? Here are some tips to create some
+                  amazing stories!
+                </p>
+              </div>
+
+              <img src={Robo} alt="Ai Img" className="w-[170px]" />
+            </div>
+            <ul className="flex flex-col -mt-5 gap-3 text-gray-300">
+              <li>🎯Be specific with your idea.</li>
+              <li>📝Choose a genre that fits your story.</li>
+              <li>🎨Develop interesting characters.</li>
+              <li>📖Create a compelling plot.</li>
+              <li>✏️Write in a clear and engaging style.</li>
+            </ul>
           </div>
         </div>
       </div>
