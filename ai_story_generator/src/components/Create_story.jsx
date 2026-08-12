@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BackgroundImage from "../assets/background.png";
 import { Castle } from "lucide-react";
 import { Mountain } from "lucide-react";
@@ -8,8 +8,18 @@ import { Orbit } from "lucide-react";
 import { Skull } from "lucide-react";
 import { CircleAlert } from "lucide-react";
 import Robo from "../assets/robo.png";
+import surpriseIdeas from "../data/supriseStoryIdea";
 
 const CreateStory = () => {
+  const [suggestedIdeas, setSuggestedIdeas] = useState(
+    surpriseIdeas.slice(0, 4),
+  );
+  const [prompt, setPrompt] = useState("");
+  const handleSurpriseMe = () => {
+    const shuffled = [...surpriseIdeas].sort(() => Math.random() - 0.5);
+
+    setSuggestedIdeas(shuffled.slice(0, 4));
+  };
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
@@ -38,6 +48,8 @@ const CreateStory = () => {
               </div>
               <textarea
                 className="bg-transparent text-gray-300 placeholder:text-gray-500 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-3 w-full h-40"
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Describe your story idea here... "
               />
               <h3 className="fantasy-font text-lg text-amber-100">
@@ -169,6 +181,33 @@ const CreateStory = () => {
               <li>📖Create a compelling plot.</li>
               <li>✏️Write in a clear and engaging style.</li>
             </ul>
+
+            {/* Surprise Ideas */}
+
+            <h2 className="mt-8 text-lg">✨ Try these ideas</h2>
+
+            <div className="flex flex-col gap-3 mt-4">
+              {suggestedIdeas.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setPrompt(item.idea)}
+                  className="flex items-center gap-4 border border-white/10 bg-[#16112c] p-3 rounded-lg text-left hover:border-purple-400 transition"
+                >
+                  <span className="text-2xl">{item.emoji}</span>
+
+                  <span className="text-gray-300">{item.idea}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Surprise Button */}
+
+            <button
+              onClick={handleSurpriseMe}
+              className="w-full mt-6 bg-purple-700 hover:bg-purple-600 p-3 rounded-lg"
+            >
+              ✨ Surprise Me ✨
+            </button>
           </div>
         </div>
       </div>
