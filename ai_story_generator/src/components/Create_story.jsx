@@ -162,52 +162,59 @@ const CreateStory = () => {
             </button>
           </div>
           {/*Right Side*/}
-          <div className="border border-white/20 bg-[#16112c]/80 backdrop-blur-md p-5 gap-5 rounded-xl md:mt-26 mt-10 mx-10 min-h-fit">
-            <div className="flex ">
-              <div className="flex flex-col gap-3 text-gray-300">
-                <h1 className="justify-start flex">✨AI Assitant</h1>
-                <p>
-                  Need help getting started? Here are some tips to create some
-                  amazing stories!
-                </p>
+          <div className="flex flex-col gap-3  mx-5">
+            <div className="border border-white/20 bg-[#16112c]/80 backdrop-blur-md p-5 gap-5 rounded-xl md:mt-26 mt-10 min-h-fit">
+              <div className="flex ">
+                <div className="flex flex-col gap-3 text-gray-300">
+                  <h1 className="justify-start flex text-yellow-200">
+                    ✨AI Assitant
+                  </h1>
+                  <p className="text-gray-300 text-md ">
+                    Need help getting started? Here are some tips to create some
+                    amazing stories!
+                  </p>
+                </div>
+
+                <img src={Robo} alt="Ai Img" className="w-[170px]" />
+              </div>
+              <ul className="flex flex-col -mt-17 gap-3 text-gray-300 text-sm">
+                <li>🎯Be specific with your idea.</li>
+                <li>📝Choose a genre that fits your story.</li>
+                <li>🎨Develop interesting characters.</li>
+                <li>📖Create a compelling plot.</li>
+                <li>✏️Write in a clear and engaging style.</li>
+              </ul>
+            </div>
+
+            {/*Bottom Side*/}
+            <div className="border border-white/20 bg-[#16112c]/80 backdrop-blur-md p-5 gap-5 rounded-xl min-h-fit">
+              {/* Surprise Ideas */}
+
+              <h2 className="text-lg text-yellow-200">✨ Try these ideas</h2>
+
+              <div className="flex flex-col gap-3 mt-4">
+                {suggestedIdeas.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setPrompt(item.idea)}
+                    className="flex text-sm items-center gap-4 border border-white/10 bg-[#16112c] p-3 rounded-lg text-left hover:border-purple-400 transition"
+                  >
+                    <span className="text-2xl">{item.emoji}</span>
+
+                    <span className="text-gray-300">{item.idea}</span>
+                  </button>
+                ))}
               </div>
 
-              <img src={Robo} alt="Ai Img" className="w-[170px]" />
+              {/* Surprise Button */}
+
+              <button
+                onClick={handleSurpriseMe}
+                className="w-full mt-6 bg-purple-700 hover:bg-purple-600 p-3 rounded-lg"
+              >
+                ✨ Surprise Me ✨
+              </button>
             </div>
-            <ul className="flex flex-col -mt-5 gap-3 text-gray-300">
-              <li>🎯Be specific with your idea.</li>
-              <li>📝Choose a genre that fits your story.</li>
-              <li>🎨Develop interesting characters.</li>
-              <li>📖Create a compelling plot.</li>
-              <li>✏️Write in a clear and engaging style.</li>
-            </ul>
-
-            {/* Surprise Ideas */}
-
-            <h2 className="mt-8 text-lg">✨ Try these ideas</h2>
-
-            <div className="flex flex-col gap-3 mt-4">
-              {suggestedIdeas.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setPrompt(item.idea)}
-                  className="flex items-center gap-4 border border-white/10 bg-[#16112c] p-3 rounded-lg text-left hover:border-purple-400 transition"
-                >
-                  <span className="text-2xl">{item.emoji}</span>
-
-                  <span className="text-gray-300">{item.idea}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Surprise Button */}
-
-            <button
-              onClick={handleSurpriseMe}
-              className="w-full mt-6 bg-purple-700 hover:bg-purple-600 p-3 rounded-lg"
-            >
-              ✨ Surprise Me ✨
-            </button>
           </div>
         </div>
       </div>
