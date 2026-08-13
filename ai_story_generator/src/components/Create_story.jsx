@@ -14,11 +14,33 @@ const CreateStory = () => {
   const [suggestedIdeas, setSuggestedIdeas] = useState(
     surpriseIdeas.slice(0, 4),
   );
-  const [prompt, setPrompt] = useState("");
   const handleSurpriseMe = () => {
     const shuffled = [...surpriseIdeas].sort(() => Math.random() - 0.5);
 
     setSuggestedIdeas(shuffled.slice(0, 4));
+  };
+
+  const [storyData, setStoryData] = useState({
+    prompt: "",
+    genre: "",
+    tone: "",
+    length: "",
+    writingStyle: "",
+    readingLevel: "",
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setStoryData({
+      ...storyData,
+      [name]: value,
+    });
+  };
+  const handleGenreChange = (genre) => {
+    setStoryData({
+      ...storyData,
+      genre,
+    });
   };
   return (
     <div
@@ -48,35 +70,78 @@ const CreateStory = () => {
               </div>
               <textarea
                 className="bg-transparent text-gray-300 placeholder:text-gray-500 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-3 w-full h-40"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
+                value={storyData.prompt}
+                onChange={handleInputChange}
+                name="prompt"
                 placeholder="Describe your story idea here... "
               />
               <h3 className="fantasy-font text-lg text-amber-100">
                 Choose a Genre🎭
               </h3>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "fantasy"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("fantasy")}
+                >
                   <Castle color="#eb7676" />
                   <h4 className="text-amber-100">Fantasy</h4>
                 </div>
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "adventure"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("adventure")}
+                >
                   <Mountain color="#eb7676" />
                   <h4 className="text-amber-100">Adventure</h4>
                 </div>
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "mystery"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("mystery")}
+                >
                   <Search color="#eb7676" />
                   <h4 className="text-amber-100">Mystery</h4>
                 </div>
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "romance"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("romance")}
+                >
                   <Heart color="#eb7676" />
                   <h4 className="text-amber-100">Romance</h4>
                 </div>
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "sci-fi"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("sci-fi")}
+                >
                   <Orbit color="#eb7676" />
                   <h4 className="text-amber-100">Sci-Fi</h4>
                 </div>
-                <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer">
+                <div
+                  className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer ${
+                    storyData.genre === "horror"
+                      ? "border-purple-400 bg-purple-400/20"
+                      : "border-violet-400 hover:bg-violet-400/20"
+                  }`}
+                  onClick={() => handleGenreChange("horror")}
+                >
                   <Skull color="#eb7676" />
                   <h4 className="text-amber-100">Horror</h4>
                 </div>
@@ -85,7 +150,12 @@ const CreateStory = () => {
               <div className="flex flex-col md:flex-row gap-5">
                 <div className="flex flex-col w-full md:w-1/2">
                   <div className="flex gap-2 items-center justify-between md:justify-start">
-                    <h3 className="fantasy-font text-lg text-amber-100">
+                    <h3
+                      className="fantasy-font text-lg text-amber-100"
+                      value={storyData.tone}
+                      onChange={handleInputChange}
+                      name="tone"
+                    >
                       Tone
                     </h3>
                     <CircleAlert color="#577696" />
@@ -108,15 +178,51 @@ const CreateStory = () => {
                     <CircleAlert color="#577696" />
                   </div>
                   <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-                    <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer mt-3">
+                    <div
+                      className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer mt-3 ${
+                        storyData.length === "short"
+                          ? "border-purple-400 bg-purple-400/20"
+                          : "border-violet-400 hover:bg-violet-400/20"
+                      }`}
+                      onClick={() =>
+                        setStoryData({
+                          ...storyData,
+                          length: "short",
+                        })
+                      }
+                    >
                       <h4 className="text-amber-100">Short</h4>
                       <p className="text-gray-400 text-sm">200-400 words</p>
                     </div>
-                    <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer mt-3">
+                    <div
+                      className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer mt-3 ${
+                        storyData.length === "medium"
+                          ? "border-purple-400 bg-purple-400/20"
+                          : "border-violet-400 hover:bg-violet-400/20"
+                      }`}
+                      onClick={() =>
+                        setStoryData({
+                          ...storyData,
+                          length: "medium",
+                        })
+                      }
+                    >
                       <h4 className="text-amber-100">Medium</h4>
                       <p className="text-gray-400 text-sm">500-800 words</p>
                     </div>
-                    <div className="flex flex-col items-center border border-violet-400 shadow-lg hover:bg-violet-400/20 transition rounded-lg p-3 gap-2 cursor-pointer mt-3">
+                    <div
+                      className={`flex flex-col items-center border shadow-lg transition rounded-lg p-3 gap-2 cursor-pointer mt-3 ${
+                        storyData.length === "long"
+                          ? "border-purple-400 bg-purple-400/20"
+                          : "border-violet-400 hover:bg-violet-400/20"
+                      }`}
+                      onClick={() =>
+                        setStoryData({
+                          ...storyData,
+                          length: "long",
+                        })
+                      }
+                    >
                       <h4 className="text-amber-100">Large</h4>
                       <p className="text-gray-400 text-sm">800+ words</p>
                     </div>
@@ -132,7 +238,12 @@ const CreateStory = () => {
                     </h3>
                     <CircleAlert color="#577696" />
                   </div>
-                  <select className="bg-transparent text-gray-300 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-4 w-full mt-3">
+                  <select
+                    className="bg-transparent text-gray-300 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-4 w-full mt-3"
+                    value={storyData.writingStyle}
+                    onChange={handleInputChange}
+                    name="writingStyle"
+                  >
                     <option value="narrative">📖 Narrative</option>
                     <option value="fairy-tale">🧚 Fairy Tale</option>
                     <option value="screenplay">🎬 Screenplay</option>
@@ -143,12 +254,15 @@ const CreateStory = () => {
                 </div>
                 <div className="flex flex-col w-full md:w-1/2">
                   <div className="flex gap-2 items-center justify-between md:justify-start">
-                    <h3 className="fantasy-font text-lg text-amber-100">
-                      Reading Level
-                    </h3>
+                    <h3 className="fantasy-font text-lg text-amber-100"></h3>
                     <CircleAlert color="#577696" />
                   </div>
-                  <select className="bg-transparent text-gray-300 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-4 w-full mt-3">
+                  <select
+                    className="bg-transparent text-gray-300 focus:outline-none border border-violet-300 shadow-lg rounded-lg p-4 w-full mt-3"
+                    value={storyData.readingLevel}
+                    onChange={handleInputChange}
+                    name="readingLevel"
+                  >
                     <option value="kids">🧒 Kids (Ages 6–10)</option>
                     <option value="young">👦 Young Reader (Ages 11–14)</option>
                     <option value="teen">📚 Teen (Ages 15–18)</option>
