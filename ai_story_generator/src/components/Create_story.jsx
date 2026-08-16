@@ -9,8 +9,11 @@ import { Skull } from "lucide-react";
 import { CircleAlert } from "lucide-react";
 import Robo from "../assets/robo.png";
 import surpriseIdeas from "../data/supriseStoryIdea";
+import GeneratingPage from "./GeneratingPage";
+import { useNavigate } from "react-router-dom";
 
 const CreateStory = () => {
+  const navigate = useNavigate();
   const [suggestedIdeas, setSuggestedIdeas] = useState(
     surpriseIdeas.slice(0, 4),
   );
@@ -271,7 +274,10 @@ const CreateStory = () => {
                 </div>
               </div>
             </div>
-            <button className="bg-violet-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition mt-5 justify-center items-center flex mx-auto text-2xl fantasy-font gap-2">
+            <button
+              className="bg-violet-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition mt-5 justify-center items-center flex mx-auto text-2xl fantasy-font gap-2"
+              onClick={() => navigate("/generating")}
+            >
               ✨Generate Story
             </button>
           </div>
@@ -310,7 +316,12 @@ const CreateStory = () => {
                 {suggestedIdeas.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => setPrompt(item.idea)}
+                    onClick={() =>
+                      setStoryData({
+                        ...storyData,
+                        prompt: item.idea,
+                      })
+                    }
                     className="flex text-sm items-center gap-4 border border-white/10 bg-[#16112c] p-3 rounded-lg text-left hover:border-purple-400 transition"
                   >
                     <span className="text-2xl">{item.emoji}</span>
