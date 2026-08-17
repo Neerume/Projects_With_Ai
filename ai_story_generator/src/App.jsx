@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import CreateStory from "./components/Create_story";
 import GeneratingPage from "./components/GeneratingPage";
+import GeneratedStory from "./components/GeneratedStory";
+
 function App() {
   return (
     <Routes>
@@ -13,6 +15,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/create" element={<CreateStory />} />
       <Route path="/generating" element={<GeneratingPage />} />
+      <Route path="/generated-story" element={<GeneratedStory />} />
     </Routes>
   );
 }
