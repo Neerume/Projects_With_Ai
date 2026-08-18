@@ -69,3 +69,6 @@ http://localhost:5173
 ## Status
 
 In progress. This project is being developed as part of my learning journey in web development.
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
