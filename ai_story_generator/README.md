@@ -1,16 +1,71 @@
-# React + Vite
+# CraftyCraft AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+CraftyCraft AI is a web application I am currently building to help users create stories based on their ideas and preferences.
 
-Currently, two official plugins are available:
+The project is still in progress. I am currently focusing on the frontend and improving my React skills while building the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Built With
 
-## React Compiler
+- React
+- JavaScript
+- Tailwind CSS
+- React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features Built So Far
 
-## Expanding the Oxlint configuration
+- Home page
+- Story creation page
+- Prompt input
+- Genre, tone, length and other story options
+- Surprise Me feature
+- Story generating page with progress steps
+- Basic generated story page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js installed.
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Neerume/Projects_With_Ai.git
+```
+
+Go to the project folder:
+
+```bash
+cd Projects_With_Ai/ai_story_generator
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in your terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+## What's Next
+
+- Connect the actual story generation functionality
+- Improve the generated story page
+- Add story saving functionality
+- Continue improving the UI and user experience
+
+## Status
+
+In progress. This project is being developed as part of my learning journey in web development.
